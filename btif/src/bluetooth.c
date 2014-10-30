@@ -910,7 +910,6 @@ static const bt_interface_t bluetoothInterface = {
     NULL,
 #endif
     config_hci_snoop_log,
-<<<<<<< HEAD
 #if BLE_INCLUDED == TRUE
     bt_le_extended_scan,
     bt_le_lpp_write_rssi_threshold,
@@ -927,12 +926,8 @@ static const bt_interface_t bluetoothInterface = {
 #else
     NULL
 #endif
-=======
-    set_os_callouts,
-    read_energy_info,
     vendor_specific_command,
     enable_vendor_specific_events,
->>>>>>> 10688c7... Implment HAL interface for vendor specific commands/events
 };
 
 const bt_interface_t* bluetooth__get_bluetooth_interface ()

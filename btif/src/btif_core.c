@@ -1853,7 +1853,7 @@ void btif_data_profile_register(int value)
 *******************************************************************************/
 static void btif_vendor_specific_command_callout(UINT16 event, char *p_params)
 {
-    BTIF_TRACE_EVENT("Execute VS command complete callout.");
+    BTIF_TRACE_EVENT0("Execute VS command complete callout.");
     tBTM_VSC_CMPL *p = (tBTM_VSC_CMPL*) p_params;
     HAL_CBACK(bt_hal_cbacks, vendor_specific_command_complete_cb, p->opcode, p->p_param_buf,
               p->param_len);
@@ -1899,7 +1899,7 @@ static void btif_vendor_specific_copy_cb(UINT16 event, char *p_new_buf, char *p_
 *******************************************************************************/
 static void btif_vendor_specific_command_cback(tBTM_VSC_CMPL *p)
 {
-    BTIF_TRACE_DEBUG("%s: transfer context to send vendor specific command", __FUNCTION__);
+    BTIF_TRACE_DEBUG1("%s: transfer context to send vendor specific command", __FUNCTION__);
 
     btif_transfer_context(
             btif_vendor_specific_command_callout,
@@ -1954,7 +1954,7 @@ static void btif_vendor_specific_event_callout(UINT16 event, char *data)
 *****************************************************************************/
 static void btif_vendor_specific_event_callback(uint8_t len, uint8_t *data)
 {
-    BTIF_TRACE_DEBUG("%s: transfer context to send vendor specific event", __FUNCTION__);
+    BTIF_TRACE_DEBUG1("%s: transfer context to send vendor specific event", __FUNCTION__);
 
     /* Marshal the length using the event number. */
     btif_transfer_context(btif_vendor_specific_event_callout, len, (char*)data, len, NULL);
